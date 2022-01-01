@@ -5,6 +5,9 @@ Max Score: 10
 Link: https://www.hackerrank.com/challenges/breaking-best-and-worst-records/problem
 */
 
+// Time complexity: O(n)
+// Space complexity: O(1)
+
 function breakingRecords(scores) {
   let worst = scores[0];
   let best = scores[0];
