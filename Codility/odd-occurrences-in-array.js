@@ -5,6 +5,7 @@ Link: https://app.codility.com/programmers/lessons/2-arrays/odd_occurrences_in_a
 */
 
 // Solution 1
+// Using object
 // Time complexity: O(n)
 // Space complexity: O(n)
 
@@ -24,5 +25,34 @@ function solution(A) {
       odd = parseInt(k);
     }
   });
+  return odd;
+}
+
+// Solution 2
+// Using Map
+// Time complexity: O(n)
+// Space complexity: O(n)
+
+function solution(A) {
+  let occurrences = new Map();
+  let odd;
+
+  A.forEach((el) => {
+    if (!occurrences.has(el)) {
+      occurrences.set(el, 0);
+    }
+    occurrences.set(el, occurrences.get(el) + 1);
+  });
+
+  // Using for in
+  // for (let [k, v] of occurrences.entries()) {
+  //   if (v % 2 !== 0) odd = k;
+  // }
+
+  // Using forEach
+  occurrences.forEach((v, k) => {
+    if (v % 2 !== 0) odd = k;
+  });
+
   return odd;
 }
