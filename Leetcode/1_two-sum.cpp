@@ -31,3 +31,35 @@ public:
         return answer;
     }
 };
+
+// Solution 2
+// Time complexity: O(n^2)
+// Space complexity: O(n)
+
+class Solution
+{
+public:
+    vector<int> twoSum(vector<int> &nums, int target)
+    {
+        vector<int> answer(2);
+        int diff;
+
+        for (int i = 0; i < nums.size(); i++)
+        {
+            diff = target - nums[i];
+            auto itr = find(nums.begin(), nums.end(), diff);
+
+            if (itr != nums.end())
+            {
+                int index = itr - nums.begin();
+                if (index != i)
+                {
+                    answer[0] = i;
+                    answer[1] = index;
+                    return answer;
+                }
+            }
+        }
+        return answer;
+    }
+};
