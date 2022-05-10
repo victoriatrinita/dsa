@@ -22,3 +22,16 @@ function binarySearchI(arr, target) {
 }
 
 console.log(binarySearchI(arr, 'x'));
+
+// Recursive
+// Time complexity: O(log n)
+// Space complexity: O(1)
+
+function binarySearchR(arr, target, start = 0, end = arr.length - 1) {
+	let mid = Math.floor((start + end) / 2);
+	if (arr[mid] < target) return binarySearchR(arr, target, mid + 1, end);
+	else if (arr[mid] > target) return binarySearchR(arr, target, start, mid - 1);
+	else return mid;
+}
+
+console.log(binarySearchR(arr, 'x'));
